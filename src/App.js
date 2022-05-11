@@ -1,25 +1,19 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import ColorInput from './components/ColorInput';
+import Home from './components/Home';
+import Input from './components/Input';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+        <Routes>
+            <Route path='/home' element={<Home />} />
+            <Route path='/:inputParam' element={<Input />} />
+            <Route path='/:inputParam/:colorParam/:bgParam' element={<ColorInput />} />
+        </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
